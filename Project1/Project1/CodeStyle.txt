@@ -1,0 +1,19 @@
+CodeStyle for José Mª Contreras on project "Bomberman"
+
+camelCase (primera minuscula, demes majuscules) 
+PascalCase (la pimera amb majuscula)
+snake_case(separa parules amb "_")
+Hungrian Notation (indicar amb una lletra el tipos de variable que es ej: bool bpepito)
+
+FileName:
+- Will use PascalCase
+-
+Vaiables:
+- Will use snake_case
+-
+Class Names:
+- Will use PascalCase
+-
+Method Names:
+- Will use camelCase
+-
