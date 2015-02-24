@@ -28,6 +28,44 @@ public:
 
 		return tmp;
 	}
+	Point2d operator- (const Point2d& a) const
+	{
+		Point2d tmp;
+		tmp.x = x - a.x;
+		tmp.y = y - a.y;
+
+		return tmp;
+	}
+
+	Point2d operator+= (const Point2d& a)
+	{
+		x = x + a.x;
+		y = y + a.y;
+
+		return *this;
+	}
+	Point2d operator-= (const Point2d& a)
+	{
+		x = x - a.x;
+		y = y - a.y;
+
+		return *this;
+	}
+	Point2d operator= (const Point2d& a)
+	{
+		x = a.x;
+		y = a.y;
+
+		return *this;
+	}
+	bool operator== (const Point2d& a)
+	{
+		return x == a.x && y == a.y;
+	}
+	bool operator!= (const Point2d& a)
+	{
+		return x != a.x || y != a.y;
+	}
 public:
 	float x, y;
 };
