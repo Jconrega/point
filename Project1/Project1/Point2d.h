@@ -39,15 +39,15 @@ public:
 
 	Point2d operator+= (const Point2d& a)
 	{
-		x = x + a.x;
-		y = y + a.y;
+		x +=  a.x;
+		y += a.y;
 
 		return *this;
 	}
 	Point2d operator-= (const Point2d& a)
 	{
-		x = x - a.x;
-		y = y - a.y;
+		x -= a.x;
+		y -= a.y;
 
 		return *this;
 	}
