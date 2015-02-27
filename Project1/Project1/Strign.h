@@ -1,87 +1,91 @@
-#ifndef _String_H_
-#define _String_H_
+#ifndef __String__
+#define __String__
 
 #include <string.h>
+#include <stdarg.h>
 
 class String
 {
 public:
-	String();
+	char* cadena;
+	unsigned int sizeMemory;
+
+	String()
 	{
 		sizeMemory = 1;
 		cadena = new char[sizeMemory];
 		cadena[0] = '\0';
 	}
-	String(const char* c){
-		
-		sizeMemory = strlen(c)+1;
+	String(const char* c)
+	{
+		sizeMemory = strlen(c) + 1;
 		cadena = new char[sizeMemory];
-		strcpy( cadena, c);
+		strcpy_s(cadena, sizeMemory, c);
+
 	}
-	
-	String(const char* format, ...){
-
-		size = 0;
-
-		if (format != NULL){
-			static va_list
-		}
+	String(const String& c)
+	{
+		sizeMemory = c.len() + 1;
+		cadena = new char[sizeMemory];
+		strcpy_s(cadena, sizeMemory, c.cadena);
 	}
-	String(const String&);
-
-	int len() const{
-
-		return strlen(cadena);
+	String(const char* format, ...)
+	{
+		FILE *tmp = tmpfile();
+		va_list ap;
+		va_start(ap, format);
+		sizeMemory = vfprintf(tmp, format, ap) + 1;
+		cadena = new char[sizeMemory];
+		vsprintf_s(cadena, sizeMemory, format, ap);
+		va_end(ap);
 	}
-	
+
+
 	~String(){
-		delete[]=
+		delete[] cadena;
 	}
-	//Operators
-	bool operator==(const String& string)const{
-		return strcmp(string.cadena, cadena);
-	}
-	bool operator == (const char* string) const{
-		if (string != NULL)
-			return strcmp(string, cadena) == 0;
-		return false;
-	}
-	const String& operator=(const char* str){
 
-		if (str != NULL){
-
-			if (strnlen(str) <= sizeMemory - 1){
-
-				strcpy_s(cadena, sizeMemory, str);
+	const String operator= (const char* c){
+		if (c != NULL)
+		{
+			if (strlen(c) + 1 > sizeMemory)
+			{
+				delete[] cadena;
+				alloc(strlen(c) + 1);
 
 			}
-
+			strcpy_s(cadena, sizeMemory, c);
 		}
-		
-		
 		else
-			Clear();
+		{
+			clear();
+		}
 		return *this;
-
-			
-		
 	}
-	void Clear(){
+	const String operator= (const String& c){
+
+		if (c.len() + 1 > sizeMemory)
+		{
+			delete[] cadena;
+			alloc(c.len() + 1);
+		}
+		strcpy_s(cadena, sizeMemory, c.cadena);
+
+		return *this;
+	}
+
+	int len() const{
+		return strlen(cadena);
+	}
+private:
+	void alloc(unsigned int sizeMemory){
+		this->sizeMemory = sizeMemory;
+		cadena = new char[sizeMemory];
+	}
+
+	void clear(){
 		cadena[0] = '\0';
 	}
-public:
-	
-	char* cadena;
-	int sizeMemory;
-
-
 };
 
-String::String()
-{
-}
-
-String::~String()
-{
-}
-#endif // !_String_H_
+#endif
