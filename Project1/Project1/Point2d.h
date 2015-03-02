@@ -5,20 +5,6 @@ class Point2f
 {
 public:
 
-	//No es necessari escriure ni el constructor ni el destructor perquè es creen automàticament.
-
-	void setZero()
-	{
-		x = y = 0.0f; //En una assignació es retorna el valor assignat. 
-
-		/*
-		if(x=0.f) Això es possible. El if no entra quan es 0, amb tots els altres valors sí.
-		{
-		}
-		*/
-	}
-
-
 	bool isZero() const
 	{
 		return x == 0.0f && y == 0.0f;
@@ -28,6 +14,11 @@ public:
 	{
 		x = -x;
 		y = -y;
+	}
+	void setZero(){
+
+		x = 0.0f;
+		y = 0.0f;
 	}
 
 	Point2f operator+ (const Point2f& a) const
@@ -76,13 +67,17 @@ public:
 	{
 		return x != a.x || y != a.y;
 	}
+	Point2f DistanceToPoint(const Point2f& a)
+	{
+		Point2f tmp;
+		tmp.x = a.x - x;
+		tmp.y = a.y - y;
 
+		return tmp;
+	}
 
 public:
 	float x, y;
-
-
-
 
 };
 #endif

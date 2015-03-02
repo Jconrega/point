@@ -8,36 +8,38 @@ class String
 {
 public:
 	char* cadena;
-	unsigned int sizeMemory;
+	unsigned int size_memory;
+	
+	String(){};
 
 	String()
 	{
 		sizeMemory = 1;
-		cadena = new char[sizeMemory];
+		cadena = new char[size_memory];
 		cadena[0] = '\0';
 	}
 	String(const char* c)
 	{
 		sizeMemory = strlen(c) + 1;
-		cadena = new char[sizeMemory];
-		strcpy_s(cadena, sizeMemory, c);
+		cadena = new char[size_memory];
+		strcpy_s(cadena, size_memory, c);
 
 	}
 	String(const String& c)
 	{
-		sizeMemory = c.len() + 1;
-		cadena = new char[sizeMemory];
-		strcpy_s(cadena, sizeMemory, c.cadena);
+		size_memory = c.len() + 1;
+		cadena = new char[size_memory];
+		strcpy_s(cadena, size_memory, c.cadena);
 	}
 	String(const char* format, ...)
 	{
-		FILE *tmp = tmpfile();
+		/*FILE *tmp = tmpfile();
 		va_list ap;
 		va_start(ap, format);
-		sizeMemory = vfprintf(tmp, format, ap) + 1;
-		cadena = new char[sizeMemory];
-		vsprintf_s(cadena, sizeMemory, format, ap);
-		va_end(ap);
+		size_memory = vfprintf(tmp, format, ap) + 1;
+		cadena = new char[size_memory];
+		vsprintf_s(cadena, size_memory, format, ap);
+		va_end(ap);*/
 	}
 
 
@@ -48,13 +50,13 @@ public:
 	const String operator= (const char* c){
 		if (c != NULL)
 		{
-			if (strlen(c) + 1 > sizeMemory)
+			if (strlen(c) + 1 > size_memory)
 			{
 				delete[] cadena;
 				alloc(strlen(c) + 1);
 
 			}
-			strcpy_s(cadena, sizeMemory, c);
+			strcpy_s(cadena, size_memory, c);
 		}
 		else
 		{
@@ -64,12 +66,12 @@ public:
 	}
 	const String operator= (const String& c){
 
-		if (c.len() + 1 > sizeMemory)
+		if (c.len() + 1 > size_memory)
 		{
 			delete[] cadena;
 			alloc(c.len() + 1);
 		}
-		strcpy_s(cadena, sizeMemory, c.cadena);
+		strcpy_s(cadena, size_memory, c.cadena);
 
 		return *this;
 	}
@@ -77,10 +79,20 @@ public:
 	int len() const{
 		return strlen(cadena);
 	}
+
+	int capacity(){
+
+		return size_memory;
+	}
+
+	char* getString(){
+
+		return cadena;
+	}
 private:
-	void alloc(unsigned int sizeMemory){
-		this->sizeMemory = sizeMemory;
-		cadena = new char[sizeMemory];
+	void alloc(unsigned int size_memory){
+		this->size_memory = size_memory;
+		cadena = new char[size_memory];
 	}
 
 	void clear(){
