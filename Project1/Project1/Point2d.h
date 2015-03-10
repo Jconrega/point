@@ -1,6 +1,8 @@
 #ifndef __Point2f_H__
 #define __Point2f_H__
 
+template <class TYPE>
+
 class Point2f
 {
 public:
@@ -13,7 +15,7 @@ public:
 	void negatePoint()
 	{
 		x = -x;
-		y = -y;
+		y = -y;		
 	}
 	void setZero(){
 

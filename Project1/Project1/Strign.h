@@ -20,7 +20,7 @@ public:
 	}
 	String(const char* c)
 	{
-		sizeMemory = strlen(c) + 1;
+		size_memory = strlen(c) + 1;
 		cadena = new char[size_memory];
 		strcpy_s(cadena, size_memory, c);
 
