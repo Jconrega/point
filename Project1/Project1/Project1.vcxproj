@@ -70,9 +70,11 @@
     <Text Include="CodeStyle.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayDynamic.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Strign.h" />
+    <ClInclude Include="utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
