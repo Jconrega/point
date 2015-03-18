@@ -2,7 +2,7 @@
 #define __String__
 
 #include <string.h>
-#include <stdarg.h>
+
 
 class String
 {
@@ -73,6 +73,21 @@ public:
 		}
 		strcpy_s(cadena, size_memory, c.cadena);
 
+		return *this;
+	}
+	const String operator += (const char* c)
+	{
+		if (c != NULL){
+			if (strlen(c) + len() + 1 <= size_memory){
+				strcat(cadena, c);
+			}
+			else
+			{
+				char* tmp = new char[]
+				
+			}
+
+		}
 		return *this;
 	}
 
