@@ -65,6 +65,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CodeStyle.txt" />

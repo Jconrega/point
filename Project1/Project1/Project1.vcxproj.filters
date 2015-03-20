@@ -15,24 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Strign.h">
-      <Filter>Archivos de código fuente</Filter>
-    </ClInclude>
-    <ClInclude Include="Point2d.h">
-      <Filter>Archivos de código fuente</Filter>
+    <ClInclude Include="ArrayDynamic.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="LinkedList.h">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ArrayDynamic.h">
-      <Filter>Archivos de código fuente</Filter>
+    <ClInclude Include="Point2d.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Strign.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="utilities.h">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>

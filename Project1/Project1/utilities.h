@@ -13,3 +13,5 @@ template <class TYPE> void swap(TYPE& a, TYPE& b) //ON hi ha variació de tipus (
 // Es lo mateix que MAX(a,b)
 //if (a>b) a
 //else b
+
+#define ESPAI 40000000
