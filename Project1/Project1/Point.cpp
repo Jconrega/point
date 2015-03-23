@@ -60,4 +60,18 @@ Point2f Point2f::operator=(const Point2f& a){
 
 	return *this;
 }
-bool P operator== (const Point2f& a)
+bool Point2f:: operator== (const Point2f& a){
+
+	return x == a.x && y == a.y;
+}
+
+bool Point2f::operator!=(const Point2f& a){
+
+	return x != a.x || y != a.y;
+
+}
+
+float Point2f::DistanceToPoint(const Point2f& a)
+{
+	return sqrt(pow(a.x - x, 2) + pow(a.y - y, 2));
+}

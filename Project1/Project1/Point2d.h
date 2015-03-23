@@ -24,18 +24,11 @@ public:
 
 	Point2f operator= (const Point2f& a){};
 
-	bool operator== (const Point2f& a)
-	{
-		return x == a.x && y == a.y;
-	}
-	bool operator!= (const Point2f& a)
-	{
-		return x != a.x || y != a.y;
-	}
-	Point2f DistanceToPoint(const Point2f& a)
-	{
-		return sqrt(pow(a.x - x, 2) + pow(a.y - y, 2));
-	}
+	bool operator== (const Point2f& a){};
+
+	bool operator!= (const Point2f& a){};
+
+	float DistanceToPoint(const Point2f& a){};
 
 private:
 	float x, y;

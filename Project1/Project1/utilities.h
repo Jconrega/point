@@ -15,3 +15,5 @@ template <class TYPE> void swap(TYPE& a, TYPE& b) //ON hi ha variació de tipus (
 //else b
 
 #define ESPAI 40000000
+
+#define DYN_ARRAY_SIZE 16

@@ -3,19 +3,23 @@
 
 #include <stdio.h>
 
+template <class TYPE>
+
 struct  node{
-	int value;
-	node* next;
+	TYPE value;
+	node<TYPE>* next;
 };
 
 
+template <class TYPE>
+
 class SList{
-	node* start;
+	node<TYPE>* start;
 
-	unsigned int Count() const{
+	unsigned TYPE Count() const{
 
-		node* tmp = start;
-		int counter = 0;
+		node<TYPE>* tmp = start;
+		TYPE counter = 0;
 		while (tmp != NULL)
 		{
 			tmp = tmp->next;
@@ -24,14 +28,14 @@ class SList{
 		return counter;
 	};
 
-	void Add(int valor){
+	void Add(TYPE valor){
 
-		node* tmp = start;
+		node<TYPE>* tmp = start;
 		if (start != NULL)
 		while (tmp->next != NULL){
 			tmp = tmp->next;
 		}
-		node* last = new node;
+		node<TYPE>* last = new node;
 		last->next = NULL;
 		last->value = valor;
 
@@ -39,20 +43,20 @@ class SList{
 
 	};
 
-	void Delete(node* delN){
+	void Delete(node<TYPE>* delete_nodes){
 
-		if (delN != NULL && start != NULL)
+		if (delete_nodes != NULL && start != NULL)
 		{
-			if (delN != NULL && start != NULL)
+			if (delete_nodes != NULL && start != NULL)
 			{
-				node* nextNode = start;
-				while (nextNode && nextNode->next!= delN)
+				node<TYPE>* nextNode = start;
+				while (nextNode && nextNode->next != delete_nodes)
 				{
 					nextNode = nextNode->next;
 				}
 				if (nextNode)
 				{
-					nextNode->next = delN->next;
+					nextNode->next = delete_nodes->next;
 				}
 				else return;
 			}
@@ -61,22 +65,17 @@ class SList{
 		{
 			start = start->next;
 		}
-		delete delN;
+		delete delete_nodes;
+		return true;
 	};
 	void DeleteList(){
 		
-		if (start != NULL){
-			node* tmp = start;
-			while (tmp->next !=NULL)
-			{
-				node* tmp2 = tmp;
-				tmp = tmp->next;
-				delete tmp2;
-			}
-			delete tmp;
-			start = NULL;
+		node<TYPE>* tmp;
+		while (start != NULL){
+			tmp = start->next;
+			delete start;
+			start = tmp;
 		}
-
 		
 	}
 };

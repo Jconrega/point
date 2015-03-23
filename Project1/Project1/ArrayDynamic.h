@@ -1,15 +1,16 @@
-#ifdef _ARRAYDYNAMIC_H_
+#infdef _ARRAYDYNAMIC_H_
 #define _ARRAYDYNAMIC_H_
 
+#include "utilities.h"
 #include <assert.h>
 #include <stdio.h>
 
-
+template <class TYPE>
 class ArrayDynamic
 {
 private:
 	//Enters que conten llocs de momria on es guardaran les coses
-	int* data;
+	TYPE* data;
 	//Tamany de memoria
 	unsigned int allocated_memory;
 	//Numero de elements de la memoria alocatada. Sempre es mes petit que allocated_memory
@@ -17,12 +18,9 @@ private:
 	
 public:
 	//Constructor	
-	ArrayDynamic(): data(NULL),allocated_memory(0),num_elements(0) ;
+	ArrayDynamic() : data(NULL), allocated_memory(0), num_elements(0) { ModifyMemory(DYN_ARRAY_SIZE); }
 	//Constructor perque comenci amb una dada donada
-	ArrayDynamic(unsigned int mem_size)
-	{
-		ModifyMemory(mem_size);
-	}
+	ArrayDynamic(unsigned int mem_size) {ModifyMemory(mem_size);}
 	//Destructor
 	~ArrayDynamic()
 	{
@@ -32,37 +30,69 @@ public:
 	//Realocatar memoria
 	void ModifyMemory(unsigned int new_memory_size)
 	{
-		if (new_memory_size !=NULL){
-			if (new_memory_size>allocated_memory || allocated_memory ==NULL){
-				allocated_memory = new_memory_size;
+		TYPE* tmp = data;
+		allocated_memory = new_memory_size;
+		data = new TYPE[allocated_memory];
+
+		if (tmp != NULL)
+		{
+			for (int i = 0; i < num_elements; i++){
+				data[i] = tmp[i];
 			}
+			delete[] tmp;
 		}
+
 	}
 	//Afegir Memoria
-	void PushBack(int value){
-		if(value != NULL){
-			
-			if (num_elements + 1>allocated_memory){
-				
-				ModyfyMemory(num_elements+1);
-			}
-			data[num_elements]=value;
-			num_elements++;
-			allocated_memory++;
+	void PushBack(TYPE value){
+		
+		if (allocated_memory <= num_elements) //No tenim memoria extra
+		{
+			ModifyMemory(allocated_memory + DYN_ARRAY_SIZE);
 		}
+		data[num_elements] = value;
+		num_elements++;
 	
 	}
 	//ExtreuMemoria
-	int Pop();
+	bool Pop()
+	{
+		if (num_elements != NULL){
+
+			return[--num_elements];
+		}
+		else
+			return false;
+	}
 	//Canvia la posicio que te per un valor
-	void Insert(int value, unsigned int position);
+	bool Insert(const TYPE value, const unsigned int position){
+
+		if (position > num_elements)
+			return false;
+		if (position == num_elements)
+		{
+			PushBack(value);
+			return true;
+		}
+		if (allocated_memory <= num_elements){
+
+			ModifyMemory(allocated_memory + DYN_ARRAY_SIZE);
+		}
+		for (unsigned int i = num_elements; i > position; i--){
+
+			data[i] = data[i - 1];
+		}
+		data[position] = value;
+		num_elements++;
+		return true;
+	}
 	//Torna referencia no constant
-	int& operator[](unsigned int index){
+	TYPE& operator[](const unsigned int index){
 		assert(index < num_elements);
 		return data[index];
 	}
 	//sobre carga de operador. Torna referencia constant
-	const int& operator [](unsigned int index)const{
+	const TYPE& operator [](unsigned int index)const{
 		assert(index < num_elements);
 		return data[index];
 	}
