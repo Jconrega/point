@@ -22,7 +22,7 @@ public:
 		char* c = "hola";
 		String s(c);
 
-		Assert::IsTrue(s.Capacity() == 5 && s.Length() == 4 && strcmp(c, s.GetString()) == 0);
+		Assert::IsTrue(s.capacity() == 5 && s.len() == 4 && strcmp(c, s.getString()) == 0);
 	}
 
 	TEST_METHOD(StringConst)
@@ -30,7 +30,7 @@ public:
 		String s("hola");
 		String s2(s);
 
-		Assert::IsTrue(s.Capacity() == 5 && s.Length() == 4 && strcmp(s2.GetString(), s.GetString()) == 0);
+		Assert::IsTrue(s.capacity() == 5 && s.len() == 4 && strcmp(s2.getString(), s.getString()) == 0);
 	}
 	TEST_METHOD(OperatorEqualEqualChar)
 	{
@@ -89,7 +89,7 @@ public:
 		String s("s");
 
 		s += "hola";
-		Assert::IsTrue(strcmp(s.GetString(), "shola") == 0);
+		Assert::IsTrue(strcmp(s.getString(), "shola") == 0);
 	}
 
 	TEST_METHOD(OperatorSumEqualString)
@@ -100,34 +100,34 @@ public:
 
 		s += s2;
 
-		Assert::IsTrue(strcmp(s.GetString(), "heybro") == 0);
+		Assert::IsTrue(strcmp(s.getString(), "heybro") == 0);
 	}
 
 	TEST_METHOD(Lenght)
 	{
 		String s("hola");
 
-		Assert::IsTrue(s.Length() == 4);
+		Assert::IsTrue(s.len() == 4);
 	}
 
 	TEST_METHOD(Capacity)
 	{
 		String s("hola");
 
-		Assert::IsTrue(s.Capacity() == 5);
+		Assert::IsTrue(s.capacity() == 5);
 	}
 	TEST_METHOD(GetString)
 	{
 		String s("hola");
 
-		Assert::IsTrue(strcmp(s.GetString(), "hola") == 0);
+		Assert::IsTrue(strcmp(s.getString(), "hola") == 0);
 	}
 
 	TEST_METHOD(Clear)
 	{
 		String s("hola");
-		s.Clear();
-		Assert::IsTrue(s.Capacity() == 1);
+		s.clear();
+		Assert::IsTrue(s.capacity() == 1);
 	}
 
 };

@@ -2,6 +2,7 @@
 #include "utilities.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <assert.h>
 
 
 String::String(){
@@ -44,6 +45,43 @@ String::~String(){
 
 	delete[] cadena;
 
+}
+bool String::operator==(const char* c) const{
+	assert(c != NULL);
+	if (strlen(c) != size_memory - 1)
+		return false;
+	if (strcmp(cadena, c) != 0)
+		return false;
+
+	return true;
+}
+bool String::operator==(const char* c) const{
+	assert(c != NULL);
+	if (strlen(c) != size_memory - 1)
+		return false;
+	if (strcmp(cadena, c) != 0)
+		return false;
+
+	return true;
+}
+bool String::operator!=(const char* c) const{
+	assert(c != NULL);
+	if (strlen(c) != size_memory - 1)
+		return true;
+	if (strcmp(cadena, c) != 0)
+		return true;
+
+	return false;
+}
+
+bool String::operator!=(const String& s) const{
+
+	if (s.size_memory != size_memory)
+		return true;
+	if (strcmp(cadena, s.cadena) != 0)
+		return true;
+
+	return false;
 }
 const String& String:: operator += (const char* c){
 	

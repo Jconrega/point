@@ -59,7 +59,8 @@ public:
 	{
 		if (num_elements != NULL){
 
-			return[--num_elements];
+			num_elements--;
+			return data[num_elements];
 		}
 		else
 			return false;

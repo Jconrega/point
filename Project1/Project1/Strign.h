@@ -15,17 +15,27 @@ public:
 
 	String(){};
 	
-	String(const String& c){}´;
+	String(const String& c){};
 
-	String(const char *format, ...){}
+	String(const char *format, ...){};
 
-	~String(){}
+	~String(){};
 
-	const String operator= (const char* c){}
+	bool operator ==(const char* c)const;
 
-	const String operator= (const String& c){}
+	bool operator ==(const String& s)const;
 
-	const String& operator += (const char* c){}
+	bool operator != (const char* c)const;
+
+	bool operator != (const String& s)const;
+
+	const String operator= (const char* c){};
+
+	const String operator= (const String& c){};
+
+	const String& operator += (const char* c){};
+
+	const String& operator += (const String& c){};
 
 	int len() const{}
 
