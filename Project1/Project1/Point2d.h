@@ -8,7 +8,9 @@ class Point2f
 {
 public:
 
-	bool isZero() const{};
+	float x, y;
+
+	bool isZero() const;
 
 	void negatePoint() {};
 
@@ -30,8 +32,6 @@ public:
 
 	float DistanceToPoint(const Point2f& a){};
 
-private:
-	float x, y;
 
 };
 #endif

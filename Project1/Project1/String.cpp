@@ -113,6 +113,41 @@ const String String::operator=(const String& c){
 
 	return *this;
 }
+
+const String& String::prefix(const char* c){
+
+	if (c != NULL){
+
+		char* tmp1 = new char[len() + 1];
+		char* tmp2 = new char[len() + strlen(c) + 1];
+		strcpy(tmp1, cadena);
+		strcpy(tmp2, c);
+
+		strcat(tmp2, tmp1);
+
+		delete[]cadena;
+		cadena = tmp2;
+
+	}
+	return *this;
+}
+
+const String& String::prefix(const String& c){
+
+	if (c != NULL){
+
+		char* tmp1 = new char[len() + 1];
+		char* tmp2 = new char[len() + strlen(c.cadena) + 1];
+		strcpy(tmp1, cadena);
+		strcpy(tmp2, c.cadena);
+		strcat(tmp2, tmp1);
+		delete[]cadena;
+		cadena = tmp2;
+
+		}
+	return *this;
+
+}
 int String::len() const{
 	return strlen(cadena);
 }

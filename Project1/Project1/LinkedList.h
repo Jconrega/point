@@ -14,12 +14,13 @@ struct  node{
 template <class TYPE>
 
 class SList{
+
 	node<TYPE>* start;
 
-	unsigned TYPE Count() const{
+	unsigned int Count() const{
 
 		node<TYPE>* tmp = start;
-		TYPE counter = 0;
+		int counter = 0;
 		while (tmp != NULL)
 		{
 			tmp = tmp->next;

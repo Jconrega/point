@@ -76,7 +76,9 @@
     <ClInclude Include="ArrayDynamic.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Projectile.h" />
     <ClInclude Include="Strign.h" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

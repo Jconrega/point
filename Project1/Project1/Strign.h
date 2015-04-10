@@ -5,6 +5,7 @@
 
 
 
+
 class String
 {
 private:
@@ -37,13 +38,17 @@ public:
 
 	const String& operator += (const String& c){};
 
-	int len() const{}
+	const String& prefix(const char* c){};
 
-	int capacity(){}
+	const String& prefix(const String& c){};
 
-	char* getString(){}
+	int len() const{};
+
+	int capacity(){};
+
+	char* getString(){};
 	
-	void clear(){}
+	void clear(){};
 
 private:
 	void alloc(unsigned int size_memory){
