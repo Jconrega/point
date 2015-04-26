@@ -1,56 +1,92 @@
 #ifndef _TREE_H_
 #define _TREE_H_
 
-#include <stdio.h>
-#include "2LinkedList.h"
+#include "2LinkedList"
+#include "Stack.h"
 
-template <class TYPE>
+template <class Type>
+struct nodeT{
+public:
+	Type data;
+	nodeT<Type>* parent;
+	List2P<Type> child;
 
-struct nodeTree{
-	TYPE data;
-	node* root;
-	List2P leat;
 };
 
-template <class TYPE>
 
-class Tree
-{
+template <class Type>
+class TreeG{
 public:
+	nodeT<Type>* rootNode;
 
-	nodeTree<TYPE>*rootnode;
+	TreeG(){ rootNode = NULL; }
+	TreeG(const Type& _data){ rootNode->data = _data; rootNode->parent = NULL; }
 
-	Tree(){ rootnode = NULL; }
 
-	~Tree();
-
-	void Add(const TYPE& data, nodeTree<TYPE>* rootfather)
-	{
-		
-		nodeTree<TYPE>* item;
-		
-		item = new nodeTree <TYPE>;
-
-		if (rootfather){
-
-			item->root = rootfather;
+	nodeT<Type>* Add(const Type& data, nodeT<Type>* _parent){
+		nodeT<Type>*item = new nodeT<Type>;
+		if (_parent)
+		{
+			item->parent = _parent;
 		}
-
 		else
 		{
-			rootfather = item;
-			item->root = NULL;
+			rootNode = item;
+			item->parent = NULL;
 		}
-		
-		rootfather = item;
-		item->leat = NULL;
+		item->data = data;
 
-		rootfather->leat.Add(item);
+		rootNode->child.Add(item->data);
+
+		return item;
 	}
 
 
-private:
+	nodeT<Type>* Add(const Type& _data){
+		nodeT<Type>* item = new nodeT<Type>;
+
+		item->parent = rootNode;
+		item->data = _data;
+
+		rootNode->child.Add(item->data);
+
+		return item;
+	}
+
+	void VisitAllNodes(List2P<Type>* list) const{
+
+		nodeT<Type>* item = rootNode;
+		list->Add(rootNode->data);
+
+		for (int i = 0; i < item->child.Count(); i++)
+		{
+			if (item->child[i]->data)
+			{
+				list->Add(item->child[i]->data);
+				printf("%s", item->child[i]->data);
+			}
+
+			else
+				VisitAllNodes(item->child[i]);
+
+		}
+	}
+
+	void InOrder(List2P<Type>* list) const{
+		nodeT<Type>* item = rootNode;
+		Stack<Type> s;
+		for (int i = 0; i < item->child.Count(); i++)
+		{
+			if (item->child[i]->data)
+				s.Push(item->child[i]->data);
+
+			else
+			{
+
+			}
+
+		}
+	}
 
 };
-
 #endif // !_TREE_H_
