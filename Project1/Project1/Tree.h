@@ -1,30 +1,30 @@
 #ifndef _TREE_H_
 #define _TREE_H_
 
-#include "2LinkedList"
+#include "2LinkedList.h"
 #include "Stack.h"
 
-template <class Type>
+template <class TYPE>
 struct nodeT{
 public:
-	Type data;
-	nodeT<Type>* parent;
-	List2P<Type> child;
+	TYPE data;
+	nodeT<TYPE>* parent;
+	List2P<TYPE> root;
 
 };
 
 
-template <class Type>
+template <class TYPE>
 class TreeG{
 public:
-	nodeT<Type>* rootNode;
+	nodeT<TYPE>* rootNode;
 
 	TreeG(){ rootNode = NULL; }
-	TreeG(const Type& _data){ rootNode->data = _data; rootNode->parent = NULL; }
+	TreeG(const TYPE& _data){ rootNode->data = _data; rootNode->parent = NULL; }
 
 
-	nodeT<Type>* Add(const Type& data, nodeT<Type>* _parent){
-		nodeT<Type>*item = new nodeT<Type>;
+	nodeT<TYPE>* Add(const TYPE& data, nodeT<TYPE>* _parent){
+		nodeT<TYPE>*item = new nodeT<TYPE>;
 		if (_parent)
 		{
 			item->parent = _parent;
@@ -36,49 +36,49 @@ public:
 		}
 		item->data = data;
 
-		rootNode->child.Add(item->data);
+		rootNode->root.Add(item->data);
 
 		return item;
 	}
 
 
-	nodeT<Type>* Add(const Type& _data){
-		nodeT<Type>* item = new nodeT<Type>;
+	nodeT<TYPE>* Add(const TYPE& _data){
+		nodeT<TYPE>* item = new nodeT<TYPE>;
 
 		item->parent = rootNode;
 		item->data = _data;
 
-		rootNode->child.Add(item->data);
+		rootNode->root.Add(item->data);
 
 		return item;
 	}
 
-	void VisitAllNodes(List2P<Type>* list) const{
+	void VisitAllNodes(List2P<TYPE>* list) const{
 
-		nodeT<Type>* item = rootNode;
+		nodeT<TYPE>* item = rootNode;
 		list->Add(rootNode->data);
 
-		for (int i = 0; i < item->child.Count(); i++)
+		for (int i = 0; i < item->root.Count(); i++)
 		{
-			if (item->child[i]->data)
+			if (item->root[i]->data)
 			{
-				list->Add(item->child[i]->data);
-				printf("%s", item->child[i]->data);
+				list->Add(item->root[i]->data);
+				printf("%s", item->root[i]->data);
 			}
 
 			else
-				VisitAllNodes(item->child[i]);
+				VisitAllNodes(item->root[i]);
 
 		}
 	}
 
-	void InOrder(List2P<Type>* list) const{
-		nodeT<Type>* item = rootNode;
-		Stack<Type> s;
-		for (int i = 0; i < item->child.Count(); i++)
+	void InOrder(List2P<TYPE>* list) const{
+		nodeT<TYPE>* item = rootNode;
+		Stack<TYPE> s;
+		for (int i = 0; i < item->root.Count(); i++)
 		{
-			if (item->child[i]->data)
-				s.Push(item->child[i]->data);
+			if (item->root[i]->data)
+				s.Push(item->root[i]->data);
 
 			else
 			{
@@ -87,6 +87,7 @@ public:
 
 		}
 	}
+	
 
 };
 #endif // !_TREE_H_

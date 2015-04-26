@@ -72,6 +72,7 @@
     <Text Include="CodeStyle.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Desktop\Practica Quadtree\Collider.h" />
     <ClInclude Include="2LinkedList.h" />
     <ClInclude Include="ArrayDynamic.h" />
     <ClInclude Include="LinkedList.h" />
