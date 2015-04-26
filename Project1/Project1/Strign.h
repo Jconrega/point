@@ -9,6 +9,7 @@
 class String
 {
 private:
+	
 	char* cadena;
 	unsigned int size_memory;
 	
