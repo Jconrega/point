@@ -1,5 +1,5 @@
-#ifndef __QEUE_H__
-#define __QEUE_H__
+#ifndef __LIST2P_H__
+#define __LIST2P_H__
 
 template<class Type>
 struct node{
@@ -9,7 +9,7 @@ struct node{
 };
 
 template<class Type>
-class Qeue{
+class List2P{
 
 public:
 	node<Type>* start;
@@ -19,10 +19,10 @@ private:
 	unsigned int size;
 
 public:
-
+		
 	//Constructor
 
-	Qeue()
+	List2P()
 	{
 		start = end = NULL;
 		size = 0;
@@ -30,17 +30,21 @@ public:
 
 	//Destructor
 
-	~Qeue()
+	~List2P()
 	{
+		DeleteAll();
 	}
 
 	//Methods
 
+	unsigned int Count()
+	{
+		return size;
+	}
 
+	void Add(const Type data){
 
-	void Push(const Type data){
-
-		node<Type>* item;
+		node<Type>* item; 
 		item = new node <Type>;
 		item->value = data;
 
@@ -60,28 +64,6 @@ public:
 		size++;
 
 	}
-
-	bool Pop(Type& value){
-
-		if (start)
-		{
-
-			value = start->value;
-			Delete(start);
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-
-
-
-	}
-
-
-
-private:
 
 	bool Delete(node<Type>* item){
 
@@ -119,9 +101,19 @@ private:
 		return true;
 	}
 
-	unsigned int Count()
-	{
-		return size;
+	void DeleteAll(){
+		node<Type>* tmp;
+		node<Type>* tmpNext;
+
+		tmp = start;
+		while (tmp != NULL){
+			tmpNext = tmp->next;
+			delete tmp;
+			tmp = tmpNext;
+		}
+
+		size = 0;
+		start = end = NULL;
 	}
 
 
