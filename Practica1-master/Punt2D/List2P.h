@@ -19,7 +19,7 @@ private:
 	unsigned int size;
 
 public:
-
+		
 	//Constructor
 
 	List2P()
@@ -44,7 +44,7 @@ public:
 
 	void Add(const Type data){
 
-		node<Type>* item;
+		node<Type>* item; 
 		item = new node <Type>;
 		item->value = data;
 

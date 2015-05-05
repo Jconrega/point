@@ -2,25 +2,8 @@
 #include <Windows.h>
 #include <stdio.h>
 
-template <class TYPE> void swap(TYPE& a, TYPE& b) //ON hi ha variació de tipus (int,char,double...) ara posem el tipus template "TYPE"
-{
-	TYPE tmp;
-	tmp = a;
-	a = b;
-	b = tmp;
-}
-#define MIN(a,b)(a<b ? a:b) 
-// Es lo mateix que MIN(a,b)
-//if (a<b) a
-//else b
-#define MAX(a,b)(a>b ? a:b)
-// Es lo mateix que MAX(a,b)
-//if (a>b) a
-//else b
-
-#define ESPAI 40000000
-
-#define DYN_ARRAY_SIZE 16
+#define MIN(a,b) ((a<b)?(a):(b))
+#define MAX(a,b) ((a>b)?(a):(b))
 
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
@@ -37,3 +20,12 @@ void log(const char file[], int line, const char* format, ...)
 	sprintf_s(tmp_string2, 4096, "\n%s(%d) : %s", file, line, tmp_string);
 	OutputDebugString(tmp_string2);
 }
+
+template<class Type> void swap(Type& a, Type& b)
+{
+	Type tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
+};
+
