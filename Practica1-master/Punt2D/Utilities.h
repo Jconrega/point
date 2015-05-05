@@ -21,6 +21,7 @@ void log(const char file[], int line, const char* format, ...)
 	OutputDebugString(tmp_string2);
 }
 
+<<<<<<< HEAD:Practica1-master/Punt2D/Utilities.h
 template<class Type> void swap(Type& a, Type& b)
 {
 	Type tmp;
@@ -29,3 +30,7 @@ template<class Type> void swap(Type& a, Type& b)
 	b = tmp;
 };
 
+=======
+#define SCREEN_WITH 640
+#define SCREEN_HEITH 480
+>>>>>>> origin/master:Project1/Project1/utilities.h

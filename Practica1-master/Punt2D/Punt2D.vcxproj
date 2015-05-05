@@ -82,7 +82,21 @@
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD:Practica1-master/Punt2D/Punt2D.vcxproj
     <Text Include="CodeStyle.txt" />
+=======
+    <ClInclude Include="..\..\..\..\..\Desktop\Practica Quadtree\Collider.h" />
+    <ClInclude Include="2LinkedList.h" />
+    <ClInclude Include="ArrayDynamic.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Qeue.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="Strign.h" />
+    <ClInclude Include="Tree.h" />
+    <ClInclude Include="utilities.h" />
+>>>>>>> origin/master:Project1/Project1/Project1.vcxproj
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

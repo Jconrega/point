@@ -56,6 +56,35 @@
     <ClInclude Include="TreeG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD:Practica1-master/Punt2D/Punt2D.vcxproj.filters
+=======
+    <ClInclude Include="Projectile.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Qeue.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\Practica Quadtree\Collider.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+>>>>>>> origin/master:Project1/Project1/Project1.vcxproj.filters
   </ItemGroup>
   <ItemGroup>
     <Text Include="CodeStyle.txt">

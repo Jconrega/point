@@ -86,8 +86,13 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD:Practica1-master/UnitTest/UnitTest.vcxproj
     <ClCompile Include="2Pointers.cpp" />
     <ClCompile Include="Stack.cpp" />
+=======
+    <ClCompile Include="ExamUnitTest.cpp" />
+    <ClCompile Include="Source.cpp" />
+>>>>>>> origin/master:Project1/UnitTest1/UnitTest1.vcxproj
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
