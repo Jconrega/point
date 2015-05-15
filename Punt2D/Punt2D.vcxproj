@@ -70,6 +70,7 @@
     <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cercle.h" />
     <ClInclude Include="DynArray.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="List2P.h" />

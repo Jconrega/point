@@ -36,6 +36,7 @@
 			sizeMemory = 1;
 			NewString(1);
 			strng[0] = '\0';
+			
 		}
 	}
 
@@ -182,4 +183,39 @@
 			strng = new char[sizeMemory];
 			strng[0] = '\0';
 		}
+
+	char* String::Trim(char* c)
+	{
+		/*
+		char* end = str+size;
+		while (*--end == ' ') *end = '\0' -> mira el contingut del 
+		char* start = str;
+		while (*++start == ' ');
+		size = strlen(start);
+		for (int i = 0; i < size + 1; i++)
+			str[i] = start [i];
+		*/
+		int b = Length();
+
+		for (int i = Length(); i > 0; i--)
+		{
+			if (c[i] != ' ')
+				break;
+			else
+				b--;
+		}
+
+		strncpy_s(c, sizeMemory, c, b);
+
+		for (int i = 0; i < b; i++)
+		{
+			if (c[i] != ' ')
+				strcpy_s(c, sizeMemory, c + i);
+				break;
+		}
+
+
+		return c;
+		
+	}
 	

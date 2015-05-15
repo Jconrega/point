@@ -45,6 +45,11 @@ public:
 	const char* GetString();
 
 	void Clear();
+
+	char* Trim(char* c);
+	char* Trim(String& s);
+
+
 	
 private:
 

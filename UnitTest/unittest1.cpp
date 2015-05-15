@@ -279,6 +279,16 @@ namespace UnitTest
 			s.Clear();
 			Assert::IsTrue(s.Capacity() == 1);
 		}
+		TEST_METHOD(Trim)
+		{
+			String s;
+			char* c = "     hola     ";
+			
+			s.Trim(c);
+			Assert::IsTrue(s.GetString()== "hola");
+
+			
+		}
 
 	};
 
@@ -295,5 +305,4 @@ namespace UnitTest
 		}
 	};
 
-	
 }

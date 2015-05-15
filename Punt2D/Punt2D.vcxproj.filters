@@ -56,6 +56,9 @@
     <ClInclude Include="TreeG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cercle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CodeStyle.txt">
