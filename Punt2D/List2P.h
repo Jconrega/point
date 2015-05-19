@@ -116,7 +116,47 @@ public:
 		start = end = NULL;
 	}
 
+	const Type& operator[] (const unsigned int index) const
+	{
+		
+		long position;
 
+		node<Type>* item;
+		item = start;
+		position = 0;
+
+		while (item!=NULL)
+		{
+			if (position == index)
+				break;
+			++position;
+			item = item->next;
+		}
+
+		assert(item);
+		return item->value;
+		
+	}
+	Type& operator[] (const unsigned int index)
+	{
+		long position;
+
+		node<Type>* item;
+		item = start;
+		position = 0;
+
+		while (item != NULL)
+		{
+			if (position == index)
+				break;
+			++position;
+			item = item->next;
+		}
+
+		assert(item);
+		return item->value;
+
+	}
 
 };
 
