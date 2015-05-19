@@ -157,8 +157,45 @@ public:
 		return item->value;
 
 	}
+	int Bubble(){
+			
+		int counter = 0;
+		node<Type>* item;
+		item = start;
 
+		bool done = false;
+		while (!done)
+		{
+			done = true;
+		
+			for (int i = 0; i < Count(); i++)
+			{
+				counter++;
+				if (item->value > item->next->value)
+				{
+					SWAP(item->value, item->next->value);
+					done = false;
+				}
+			}
+			item = item->next;
+		}
+
+		return counter;
+	}
+
+	void SWAP(node<Type>*& a, node<Type>*& b)
+	{
+		if (a->next != NULL)
+			a->next->prev = a;
+		if (a->prev != NULL)
+			a->prev->next = a;
+		if (b->next != NULL)
+			b->next->prev = b;
+		if (b->prev != NULL)
+			b->prev->next = b;
+	}
 };
 
 
 #endif
+

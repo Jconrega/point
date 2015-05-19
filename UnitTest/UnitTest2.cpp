@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include "../Punt2D/DynArray.h"
 
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
@@ -50,6 +51,22 @@ public:
 		Assert::AreEqual((int)array.getAllocatedMemory(), DYN_ARRAY_BLOCK_SIZE * 2);
 		Assert::AreEqual((int)array[3], 999);
 		Assert::AreEqual((int)array[17], 888);
+
+	}
+	TEST_METHOD(MirrorArray)
+	{
+		DynArray<int> array;
+
+		for (int i = 0; i < 5; ++i)
+		{
+			array.PushBack(i);
+		}
+
+		Assert::AreEqual(array[0], 0);
+		Assert::AreEqual(array[1], 1);
+		Assert::AreEqual(array[2], 2);
+		Assert::AreEqual(array[3], 3);
+		Assert::AreEqual(array[4], 4);
 
 	}
 

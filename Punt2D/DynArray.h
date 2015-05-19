@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include "Utilities.h"
 
 #define DYN_ARRAY_BLOCK_SIZE 16
 
@@ -99,6 +100,14 @@ class DynArray{
 			return data[index];
 		}
 
+		void Mirror()
+		{
+			for (int i = 0; i < (numElements / 2); i++)
+			{
+				swap(data[i], data[numElements - i]);
+
+			}
+		}
 	
 
 };
