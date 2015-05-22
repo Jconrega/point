@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "../Punt2D/DynArray.h"
+#include "../Punt2D/Queue2DynArr.h"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -19,20 +20,20 @@ public:
 
 		Assert::IsTrue(arr.getAllocatedMemory() == 12);
 	}
-	
+
 
 	TEST_METHOD(PushBack)
 	{
 		DynArray<int> arr;
 
 		for (int i = 0; i < 6; i++)
-		{ 
+		{
 			arr.PushBack(i);
 		}
 
 		Assert::IsTrue(arr[0] == 0 && arr[1] == 1 && arr[4] == 4 && arr[5] == 5);
 	}
-	
+
 
 	TEST_METHOD(Insert)
 	{
@@ -70,7 +71,10 @@ public:
 
 	}
 
-	
+	};
+
+	TEST_CLASS(Queue2DynArray)
+	{
 
 	};
 }
