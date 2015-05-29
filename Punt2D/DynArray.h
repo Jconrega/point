@@ -108,6 +108,22 @@ class DynArray{
 
 			}
 		}
+
+		bool Insert(DynArray<Type>& b, const unsigned int position)
+		{
+			if (position > numElements)
+				return false;
+
+			for (int i = 0; i < numElements; i++)
+			{
+			
+				Insert(b[i], position+i);
+			
+			}
+
+			return true;
+				
+		}
 	
 
 };

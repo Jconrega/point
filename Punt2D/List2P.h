@@ -194,6 +194,20 @@ public:
 		if (b->prev != NULL)
 			b->prev->next = b;
 	}
+	const List2P<Type>& operator +=(const List2P<Type>& b){
+
+		node<Type>* item = b.start;
+
+		while (item)
+		{
+			Add(item->value);
+			item = item->next;
+		}
+		return *this;
+
+		
+	}
+
 };
 
 

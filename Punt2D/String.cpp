@@ -218,4 +218,25 @@
 		return c;
 		
 	}
+
+	unsigned int String::Find(const char* c)
+	{
+		unsigned int count = 0;
+		
+		if (c != NULL)
+		{
+			unsigned int len = strlen(c);
+
+			for (unsigned int i = 0; i < sizeMemory - len; i++)
+			{
+				if (strncmp(c, &strng[i], len) == 0)
+				{
+					i += len;
+					++count;
+				}
+			}
+		}
+
+		return count;
+	}
 	

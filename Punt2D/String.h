@@ -49,6 +49,8 @@ public:
 	char* Trim(char* c);
 	char* Trim(String& s);
 
+	unsigned int Find(const char* c);
+
 
 	
 private:
